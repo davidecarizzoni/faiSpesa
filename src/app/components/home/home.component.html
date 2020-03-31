@@ -1,124 +1,128 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Home</title>
-  </head>
+</head>
 
 <!--HEADER-->
-  <header>
-      <img src="/assets/img/logo.png" alt="logo">
-      <nav>
+<header>
+    <img src="/assets/img/logo.png" alt="logo">
+    <nav>
         <ul class="nav_links">
-          <li> <a href=""><button> Scarica      </button></a> </li>
-          <li> <a href=""><button> Funzionalità </button></a> </li>
-          <li> <a href=""><button> Contatti     </button></a> </li>
-          <!-- <li> <a href="../login/signin.html"><button> Registrati</button></a> </li> -->
-          <li> <a href="../login/login.html"> <button class="buttonBlue"> Login</button></a> </li>
+            <li> <a href=""><button> Scarica      </button></a> </li>
+            <li> <a href=""><button> Funzionalità </button></a> </li>
+            <li> <a href=""><button> Contatti     </button></a> </li>
+            <!-- <li> <a href="../login/signin.html"><button> Registrati</button></a> </li> -->
+            <li>
+                <a routerLink="/login"> <button class="buttonBlue"> Login</button></a>
+            </li>
         </ul>
-      </nav>
-  </header>
+    </nav>
+</header>
 
 <!--BODY-->
-  <body>
+
+<body>
     <!--HOME -->
     <div class="body">
-      <!--CONTAINER -->
-      <div id="one">
-        <h1 class="title">IL NUOVO MODO <br> DI FARE SPESA </h1>
-        <h2 class="subtitle">Lorem Ipsum Dolor Sit Amet Consectetur
-          <br> Adipisicing Elit. Dolor Sapiente Atque,
-          <br> Dicta Nobis, Quos Deserunt Minus Iure Nostrum.</h2>
-          <div class="banner">
-            <p class="banner_text">Scarica l'applicazione per il tuo smartphone</p>
-            <div class="banner_img">
-              <img class="margin_img" src="/assets/img/playstore.png" alt="">
-              <img src="/assets/img/appstore.png" alt="">
+        <!--CONTAINER -->
+        <div id="one">
+            <h1 class="title">IL NUOVO MODO <br> DI FARE SPESA </h1>
+            <h2 class="subtitle">Lorem Ipsum Dolor Sit Amet Consectetur
+                <br> Adipisicing Elit. Dolor Sapiente Atque,
+                <br> Dicta Nobis, Quos Deserunt Minus Iure Nostrum.</h2>
+            <div class="banner">
+                <p class="banner_text">Scarica l'applicazione per il tuo smartphone</p>
+                <div class="banner_img">
+                    <img class="margin_img" src="/assets/img/playstore.png" alt="">
+                    <img src="/assets/img/appstore.png" alt="">
+                </div>
+                <p class="banner_text">Oppure <a class="banner_text" href="../login/login.html"><strong>Accedi</strong></a> o <a class="banner_text" href="../login/signin.html"><strong>Registrati</strong></a> alla versione Web</p>
             </div>
-            <p class="banner_text">Oppure <a class="banner_text" href="../login/login.html"><strong>Accedi</strong></a> o <a class="banner_text" href="../login/signin.html"><strong>Registrati</strong></a> alla versione Web</p>
-          </div>
-          <div class="arrow_white">
-            <img src="/assets/img/arrow_white.png" alt="arrow_white">
-          </div>
-          <div class="phone">
-            <img src="/assets/img/phone1.png" alt="smartphone">
-          </div>
-      </div>
-      <!--CONTAINER 1 -->
-      <div id="container">
-        <h1 class="title_black">Scopri le funzionalità, fai spesa senza pensieri</h1>
-        <h2 class="subtitleContainer">Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Officiis, Excepturi. <br> Sunt Nobis Dolorem Nam Voluptatibus! Facere Dicta Fugiat Deserunt Quisquam Id</h2>
-        <div class="grid">
-          <div class="box">
-            <h5 class="box_title"> Crea e salva le tue liste </h5>
-            <img src="/assets/img/home_liste.png" alt="">
-            <h5 class="box_subtitle"> Compri sempre gli stessi articoli oppure aggiungi sempre nuovi prodotti? </h5>
-          </div>
-          <div class="box">
-            <h5 class="box_title"> Aggiungi gli ingredienti delle tue ricette </h5>
-            <img src="/assets/img/home_ricette.png" alt="">
-            <h5 class="box_subtitle"> Cosa prepari al cioccolato <br> Torta al cioccolato o piatto light? </h5>
-          </div>
-          <div class="box">
-            <h5 class="box_title"> Invia liste ai tuoi amici </h5>
-            <img  src="/assets/img/home_share.png" alt="">
-            <h5 class="box_subtitle"> Invia liste della spesa a chi vuoi e ricevi liste dai tuoi contatti! </h5>
-          </div>
-          <div class="box">
-            <h5 class="box_title"> Aggiungi e spunta gli articoli </h5>
-            <img  src="/assets/img/home_cart.png" alt="">
-            <h5 class="box_subtitle"> Controlla tutto prima di andare in cassa </h5>
-          </div>
+            <div class="arrow_white">
+                <img src="/assets/img/arrow_white.png" alt="arrow_white">
+            </div>
+            <div class="phone">
+                <img src="/assets/img/phone1.png" alt="smartphone">
+            </div>
         </div>
-      </div>
-      <div class="arrow_blue">
-        <img src="/assets/img/arrow_blue.png" alt="arrow_blue">
-      </div>
-      <!--CONTAINER 2-->
-      <div id="container1">
-        <h1 class="title_white">Vuoi scriverci un messaggio? </h1>
-        <h2 class="subtitle_white">Il parere dei nostri utenti è molto importante per noi! <br>
-            Se desideri segnalarci problemi o consigliarci qualcosa non esitare a scirverci! </h2>
-          <form action="index.html" method="post">
-            <input class="input" type="email" placeholder="Indirizzo email">
-            <textarea class="textarea" rows="8" cols="80" placeholder="Scrivi il tuo messaggio"></textarea>
-            <button class="button_submit" type="button">INVIA MESSAGGIO</button>
-          </form>
-      </div>
+        <!--CONTAINER 1 -->
+        <div id="container">
+            <h1 class="title_black">Scopri le funzionalità, fai spesa senza pensieri</h1>
+            <h2 class="subtitleContainer">Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Officiis, Excepturi. <br> Sunt Nobis Dolorem Nam Voluptatibus! Facere Dicta Fugiat Deserunt Quisquam Id</h2>
+            <div class="grid">
+                <div class="box">
+                    <h5 class="box_title"> Crea e salva le tue liste </h5>
+                    <img src="/assets/img/home_liste.png" alt="">
+                    <h5 class="box_subtitle"> Compri sempre gli stessi articoli oppure aggiungi sempre nuovi prodotti? </h5>
+                </div>
+                <div class="box">
+                    <h5 class="box_title"> Aggiungi gli ingredienti delle tue ricette </h5>
+                    <img src="/assets/img/home_ricette.png" alt="">
+                    <h5 class="box_subtitle"> Cosa prepari al cioccolato <br> Torta al cioccolato o piatto light? </h5>
+                </div>
+                <div class="box">
+                    <h5 class="box_title"> Invia liste ai tuoi amici </h5>
+                    <img src="/assets/img/home_share.png" alt="">
+                    <h5 class="box_subtitle"> Invia liste della spesa a chi vuoi e ricevi liste dai tuoi contatti! </h5>
+                </div>
+                <div class="box">
+                    <h5 class="box_title"> Aggiungi e spunta gli articoli </h5>
+                    <img src="/assets/img/home_cart.png" alt="">
+                    <h5 class="box_subtitle"> Controlla tutto prima di andare in cassa </h5>
+                </div>
+            </div>
+        </div>
+        <div class="arrow_blue">
+            <img src="/assets/img/arrow_blue.png" alt="arrow_blue">
+        </div>
+        <!--CONTAINER 2-->
+        <div id="container1">
+            <h1 class="title_white">Vuoi scriverci un messaggio? </h1>
+            <h2 class="subtitle_white">Il parere dei nostri utenti è molto importante per noi! <br> Se desideri segnalarci problemi o consigliarci qualcosa non esitare a scirverci! </h2>
+            <form action="index.html" method="post">
+                <input class="input" type="email" placeholder="Indirizzo email">
+                <textarea class="textarea" rows="8" cols="80" placeholder="Scrivi il tuo messaggio"></textarea>
+                <button class="button_submit" type="button">INVIA MESSAGGIO</button>
+            </form>
+        </div>
     </div>
-  </body>
+</body>
 
 <!--FOOTER-->
-  <footer>
+<footer>
     <div class="backtotop">
-      <a href="#"> <img src="/assets/img/backtotop.png" alt=""> </a>
+        <a href="#"> <img src="/assets/img/backtotop.png" alt=""> </a>
     </div>
     <div class="grid-4x1">
-      <div class="box">
-        <img src="/assets/img/logo_footer.png" alt="">
-      </div>
-      <div class="box">
-        <ul class="ul_footer">
-          <li class="li_footer"> <a class="footer" href="#">Scarica App</a> </li>
-          <li class="li_footer"> <a class="footer" href="#">Funzionalità</a> </li>
-          <li class="li_footer"> <a class="footer" href="#">Contatti</a> </li>
-          <li class="li_footer"> <a class="footer" href="#">Privacy</a> </li>
-        </ul>
-      </div>
-      <div class="box">
-        <ul class="ul_footer">
-          <li class="li_footer"> <a class="footer" href="../login/signin.html">Login</a> </li>
-          <li class="li_footer"> <a class="footer" href="../login/signin.html">Logout</a> </li>
-        </ul>
-      </div>
-      <div class="box">
-        <h2 class="h2_footer">SEGUICI SU</h2>
-        <img class="img_footer" src="/assets/img/twitter.png" alt="twitter">
-        <img class="img_footer" src="/assets/img/facebook.png" alt="facebook">
-      </div>
+        <div class="box">
+            <img src="/assets/img/logo_footer.png" alt="">
+        </div>
+        <div class="box">
+            <ul class="ul_footer">
+                <li class="li_footer"> <a class="footer" href="#">Scarica App</a> </li>
+                <li class="li_footer"> <a class="footer" href="#">Funzionalità</a> </li>
+                <li class="li_footer"> <a class="footer" href="#">Contatti</a> </li>
+                <li class="li_footer"> <a class="footer" href="#">Privacy</a> </li>
+            </ul>
+        </div>
+        <div class="box">
+            <ul class="ul_footer">
+                <li class="li_footer"> <a class="footer" routerLink="/login">Login</a> </li>
+                <li class="li_footer"> <a class="footer" href="../login/signin.html">Logout</a> </li>
+            </ul>
+        </div>
+        <div class="box">
+            <h2 class="h2_footer">SEGUICI SU</h2>
+            <img class="img_footer" src="/assets/img/twitter.png" alt="twitter">
+            <img class="img_footer" src="/assets/img/facebook.png" alt="facebook">
+        </div>
     </div>
     <div class="end_footer">
-      <h5 class="end_text">©2019 FaiSpesa.it FaiSpesa® il nuovo modo di fare spesa™</h5>
+        <h5 class="end_text">©2019 FaiSpesa.it FaiSpesa® il nuovo modo di fare spesa™</h5>
     </div>
-  </footer>
+</footer>
+
 </html>
