@@ -16,7 +16,7 @@ export class LoginService {
 
   constructor(private router:Router) {}
 
-  accesso(email: string,username: string,password:string): boolean{
+  isPres(email: string,username: string,password:string): boolean{
     let controllo=false;
     this.users.forEach(element => {
       if(element.email==email &&element.username==username && element.password==password){
@@ -28,7 +28,7 @@ export class LoginService {
   }
 
   eseguiLogin(email: string,username: string,password:string){
-    if (this.accesso(email,username,password)) {
+    if (this.isPres(email,username,password)) {
       sessionStorage.setItem('user', username);
       this.router.navigateByUrl('/list');
     }
