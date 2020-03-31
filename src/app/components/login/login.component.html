@@ -15,12 +15,12 @@
                 <h2 class="titolo2">Accedi</h2><br>
                 <form class="inTable">
                     <label>Email</label><br>
-                    <input type="email" name="Email">
+                    <input #email type="email" name="Email">
                     <label>Username</label><br>
-                    <input type="text" name="username"><br>
+                    <input #username type="text" name="username"><br>
                     <label>Password</label><br>
-                    <input type="password" name="psw"><br><br>
-                    <a><button type="button" class="bottone">Accedi</button></a>
+                    <input #password type="password" name="psw"><br><br>
+                    <a><button (click)="login(email.value, username.value, password.value)" type="button" class="bottone">Accedi</button></a>
                 </form>
                 <br>
                 <!--<h4 class="titolo2">Oppure</h4>-->
