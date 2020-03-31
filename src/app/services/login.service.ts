@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.interface';
 import { Router } from '@angular/router';
+import { FormStyle } from '@angular/common';
 
 
 @Injectable({
@@ -27,10 +28,15 @@ export class LoginService {
     return controllo;
   }
 
-  eseguiLogin(email: string,username: string,password:string){
+  eseguiLogin(email: string,username: string, password:string){
     if (this.isPres(email,username,password)) {
       sessionStorage.setItem('user', username);
       this.router.navigateByUrl('/list');
+    }
+    else{
+      window.alert('Utente non trovato!');
+      // let name = document.querySelector('#username');
+      // name.setAttribute('value','')
     }
   }
 }
