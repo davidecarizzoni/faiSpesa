@@ -12,16 +12,16 @@
             <td class="left">
                 <h1>Fai spesa</h1>
                 <h2 class="titolo">Crea un account</h2><br>
-                <form class="inTable">
+                <form [formGroup]="signForm" (ngSubmit)="onSubmit(signForm.value)" class="inTable">
                     <label>Nome e cognome</label><br>
-                    <input type="text" name="nomeCognome"><br>
+                    <input type="text" name="nomeCognome" formControlName="nomeCognome"><br>
                     <label>Email</label><br>
-                    <input type="text" name="email">
+                    <input type="text" name="email" formControlName="email">
                     <label>Username</label><br>
-                    <input type="text" name="username">
+                    <input type="text" name="username" formControlName="username">
                     <label>Password</label><br>
-                    <input type="password" name="psw"><br>
-                    <a href="liste.html"><button type="button" class="bottone">Accedi</button></a>
+                    <input type="password" name="password" formControlName="password"><br>
+                    <button type="submit" class="bottone">Crea un account</button>
                 </form>
                 <br>
                 <h4 class="titolo">Hai già un account?</h4>

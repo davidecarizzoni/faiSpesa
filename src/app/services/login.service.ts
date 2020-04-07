@@ -39,4 +39,9 @@ export class LoginService {
       // name.setAttribute('value','')
     }
   }
+  add(user){
+    user.admin=false;
+    this.users.push(user);
+    console.log(this.users);
+  }
 }

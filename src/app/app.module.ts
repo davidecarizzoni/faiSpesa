@@ -8,6 +8,7 @@ import { ListRoutingModule } from './app-routing-module';
 import { ListComponent } from './components/list/list.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SigninComponent } from './components/signin/signin.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { SigninComponent } from './components/signin/signin.component';
   ],
   imports: [
     BrowserModule,
-    ListRoutingModule
+    ListRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
