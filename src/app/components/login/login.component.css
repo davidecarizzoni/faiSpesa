@@ -64,10 +64,13 @@ a.ref {
 }
 
 a.ref1 {
-    padding-left: 290px;
-    align-content: center;
+    padding-left: 307px;
+    text-decoration: none;
+    /* align-content: center; */
+    margin: auto;
     font-family: Arial;
     color: #1fafcc;
+    font-size: 18pt;
 }
 
 h4.titolo {
@@ -82,6 +85,7 @@ h4.titolo2 {
     align-content: center;
     font-family: 'RobotoRegular';
     color: #83858a;
+    font-size: 16pt;
 }
 
 form.inTable {

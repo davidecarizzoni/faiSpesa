@@ -12,15 +12,15 @@
             <td class="left">
                 <h1>Fai spesa</h1>
                 <h2 class="titolo">Crea un account</h2><br>
-                <form [formGroup]="signForm" (ngSubmit)="onSubmit(signForm.value)" class="inTable">
+                <form [formGroup]="signForm" (ngSubmit)="onSubmit(signForm.value)" class="inTable" ngNativeValidate>
                     <label>Nome e cognome</label><br>
-                    <input type="text" name="nomeCognome" formControlName="nomeCognome"><br>
+                    <input type="text" name="nomeCognome" formControlName="nomeCognome" required><br>
                     <label>Email</label><br>
-                    <input type="text" name="email" formControlName="email">
+                    <input type="text" name="email" formControlName="email" required>
                     <label>Username</label><br>
-                    <input type="text" name="username" formControlName="username">
+                    <input type="text" name="username" formControlName="username" required>
                     <label>Password</label><br>
-                    <input type="password" name="password" formControlName="password"><br>
+                    <input type="password" name="password" formControlName="password" required><br>
                     <button type="submit" class="bottone">Crea un account</button>
                 </form>
                 <br>
@@ -30,10 +30,6 @@
             <td class="right"><img src="/assets/img/BG_login.png" alt="Donna che fa la spesa" align="right" class="inTable"></td>
         </tr>
     </table>
-
-    <div>
-        <pre *ngFor="let item of items | async "> {{ item.content}} </pre>
-    </div> -->
 </body>
 
 </html>

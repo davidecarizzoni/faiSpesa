@@ -23,10 +23,10 @@ export class SigninComponent implements OnInit {
 
   constructor(private login:LoginService,private fb: FormBuilder,private router: Router, public db:AngularFireDatabase) { 
     this.signForm = this.fb.group({
-      nomeCognome: '',
-      email:'',
-      username:'',
-      password: '',
+      nomeCognome: ['',Validators.required],
+      email:['',Validators.required],
+      username:['',Validators.required],
+      password: ['',Validators.required],
     });
     
     this.items = db.list('items').valueChanges();
