@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder,FormArray,Validators, FormControl } from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.interface';
+
+import {AngularFireDatabase} from '@angular/fire/database';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-signin',
@@ -11,13 +15,21 @@ import { Router } from '@angular/router';
 export class SigninComponent implements OnInit {
 
   signForm: FormGroup;
-  constructor(private login:LoginService,private fb: FormBuilder,private router: Router) { 
+  
+  //FIREBASE
+  itemValue: User = null;
+  items: Observable <any[]>;
+
+
+  constructor(private login:LoginService,private fb: FormBuilder,private router: Router, public db:AngularFireDatabase) { 
     this.signForm = this.fb.group({
       nomeCognome: '',
       email:'',
       username:'',
       password: '',
     });
+    
+    this.items = db.list('items').valueChanges();
   }
 
   ngOnInit(): void {
@@ -26,6 +38,9 @@ export class SigninComponent implements OnInit {
   onSubmit(user){
     this.router.navigateByUrl("/login");
     this.login.add(user);
+
+    this.db.list('items').push({content: user });
+    this.itemValue = null;
   }
   
 }

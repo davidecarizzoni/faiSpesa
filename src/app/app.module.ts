@@ -10,6 +10,11 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { SigninComponent } from './components/signin/signin.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+// FIREBASE IMPORTS
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {environment} from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +28,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     BrowserModule,
     ListRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
