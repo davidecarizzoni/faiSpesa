@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ListRoutingModule } from './app-routing-module';
 import { ListComponent } from './components/list/list.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SigninComponent } from './components/signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     HomeComponent,
     LoginComponent,
     ListComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
