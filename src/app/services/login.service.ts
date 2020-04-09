@@ -26,10 +26,10 @@ export class LoginService {
     this.itemsRef=db.list('/users');
   }
 
-  isPres(email: string,username: string,password:string): boolean{
+  isPres(username: string,password:string): boolean{
     let controllo=false;
     this.users.forEach(element => {
-      if(element.email==email &&element.username==username && element.password==password){
+      if(element.username==username && element.password==password){
         element.admin === true ? sessionStorage.setItem('privilege','admin') : sessionStorage.setItem('privilege','user');
         controllo=true;
       }
@@ -38,8 +38,8 @@ export class LoginService {
     
   }
 
-  eseguiLogin(email: string,username: string, password:string){
-    if (this.isPres(email,username,password)) {
+  eseguiLogin(username: string, password:string){
+    if (this.isPres(username,password)) {
       sessionStorage.setItem('user', username);
       this.router.navigateByUrl('/list');
     }
