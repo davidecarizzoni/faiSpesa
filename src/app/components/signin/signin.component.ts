@@ -29,7 +29,7 @@ export class SigninComponent implements OnInit {
       password: ['',Validators.required],
     });
     
-    this.items = db.list('items').valueChanges();
+    this.items = db.list('users').valueChanges();
   }
 
   ngOnInit(): void {
@@ -39,7 +39,7 @@ export class SigninComponent implements OnInit {
     this.router.navigateByUrl("/login");
     this.login.add(user);
 
-    this.db.list('items').push({content: user });
+    this.db.list('users').push(user);
     this.itemValue = null;
   }
   

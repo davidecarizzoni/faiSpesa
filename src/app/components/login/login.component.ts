@@ -9,7 +9,9 @@ import { FormGroup, FormBuilder,FormArray,Validators, FormControl } from '@angul
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService) { 
+    loginService.getUsersFromFirebase();
+  }
 
   ngOnInit(): void {
   }
