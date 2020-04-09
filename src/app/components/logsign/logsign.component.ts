@@ -1,5 +1,10 @@
 import { Component, OnInit, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { User } from 'src/app/models/user.interface';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'app-logsign',
@@ -9,16 +14,27 @@ import { LoginService } from 'src/app/services/login.service';
 
 export class LogsignComponent implements OnInit, AfterViewInit {
 
-  constructor(private loginService: LoginService, private elementRef:ElementRef) { 
-    loginService.getUsersFromFirebase();
-  }
+  signForm: FormGroup;
+  itemValue: User = null;
+  items: Observable <any[]>;
 
   
   private signUp;
   private signIn;
   private container;
  
-  
+  constructor(private loginService: LoginService, private elementRef:ElementRef,private fb: FormBuilder,private router: Router, public db:AngularFireDatabase) { 
+    loginService.getUsersFromFirebase();
+
+    this.signForm = this.fb.group({
+      nomeCognome: ['',Validators.required],
+      email:['',Validators.required],
+      username:['',Validators.required],
+      password: ['',Validators.required],
+    });
+    
+    this.items = db.list('users').valueChanges();
+  }
   
   ngAfterViewInit(): void {
     this.signUp = this.elementRef.nativeElement.querySelector("#signUp");
@@ -37,17 +53,23 @@ export class LogsignComponent implements OnInit, AfterViewInit {
     console.log("Login pressed");
   }
 
-  onSubmitSignUp(){
+  signin(user){
+    this.router.navigateByUrl("/list");
+    this.loginService.add(user);
+
+    this.db.list('users').push(user);
+    this.itemValue = null;
+  }
+
+  switchSignUp(){
     console.log("Sign un pressed");
     this.container.classList.add("right-panel-active");
   }
 
-
-  onSubmitSignIn(){
-    
+  switchLogin(){
+    this.container.classList.remove("right-panel-active");
   }
   
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

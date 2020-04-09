@@ -6,7 +6,6 @@ import { HomeComponent } from './components/home/home.component';
 import { ListRoutingModule } from './app-routing-module';
 import { ListComponent } from './components/list/list.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { SigninComponent } from './components/signin/signin.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 // FIREBASE IMPORTS
@@ -21,7 +20,6 @@ import { LogsignComponent } from './components/logsign/logsign.component';
     HomeComponent,
     ListComponent,
     PageNotFoundComponent,
-    SigninComponent,
     LogsignComponent
   ],
   imports: [
