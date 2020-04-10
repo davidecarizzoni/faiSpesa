@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
-$bgcolor : #21ac70;
+$bgcolor : rgb(85, 175, 223);
 $btncolor :#fb6a30;
 $headingbg : #f0f4f2;
 
@@ -85,6 +85,7 @@ box-shadow: 1px 8px 5px rgba(0,0,0,.2);
         font-size:13px;
         color:#676462;
         text-transform:capitalize;
+        max-height: 30px;
       }
     }
   }
@@ -134,10 +135,6 @@ box-shadow: 1px 8px 5px rgba(0,0,0,.2);
         -webkit-transform:scale(1.5);
       transform:scale(1.5);
       }
-      p{
-        -webkit-transform:translateX(100%);
-        transform:translateX(100%);
-      }
     }
    }
 }
@@ -166,4 +163,9 @@ h4{
       text-decoration:underline;
     }
   }
+}
+
+.bottom{
+  position: relative;
+  bottom: 0;
 }

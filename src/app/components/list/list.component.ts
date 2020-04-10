@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdottiService } from 'src/app/services/prodotti.service';
+import { Prodotto } from 'src/app/models/prodotto.interface';
 
 @Component({
   selector: 'app-list',
@@ -8,7 +9,13 @@ import { ProdottiService } from 'src/app/services/prodotti.service';
 })
 export class ListComponent implements OnInit {
 
-  constructor(private prosottiService:ProdottiService) {}
+  prodotti: Prodotto[];
+  
+
+  constructor(private prodottiService:ProdottiService) {
+    prodottiService.getProdottiFromFirebase();
+    this.prodotti = prodottiService.getListaProdotti();
+  }
 
   ngOnInit(): void {
   }
