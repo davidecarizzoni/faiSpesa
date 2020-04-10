@@ -3,4 +3,6 @@ export interface Prodotto{
     descrizione: string;
     prezzo : number;
     img : string;
+    unita: string;
+    genere: string;
 }

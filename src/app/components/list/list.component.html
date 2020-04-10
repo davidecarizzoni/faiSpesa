@@ -10,28 +10,30 @@
 <body>
     <h2 class="big-heading">NOME DELLA LISTA</h2>
 
-    
-    <div class="table" *ngFor="let prodotto of prodotti" >
-        <h2 class="heading">ALIMENTI</h2>
-            <div class="block">
+
+    <div class="table" *ngFor="let prodotto of prodotti">
+        <h2 class="heading">{{prodotto.genere | uppercase}}</h2>
+        <div class="block">
+            <span class="price"> {{prodotto.prezzo  | currency:"EUR":"symbol"}}/ <sub> {{prodotto.unita}} </sub> </span>
             <p> {{prodotto.nome}} </p>
-            <span class="price"> {{prodotto.prezzo  | currency:"EUR":"symbol"}}/ <sub> U </sub> </span>   
-            <ul class="options"> <li> {{prodotto.descrizione}} </li> </ul>
+            <ul class="options">
+                <li> {{prodotto.descrizione}} </li>
+            </ul>
         </div>
         <div class="block">
-            <img src="{{prodotto.img}}" alt="IMMAGINE"> 
+            <img src="{{prodotto.img}}" alt="IMMAGINE">
         </div>
         <button class="btn">
             <p>Aggiungi alla lista</p>
         </button>
     </div>
-    
-        
+
+
 
     <!-- <div class="bottom">
         <h1 routerLink="/home">TORNA ALLA HOME</h1>
     </div> -->
-  
+
 
 
 </body>

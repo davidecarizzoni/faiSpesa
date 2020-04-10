@@ -11,12 +11,12 @@ import { map } from 'rxjs/operators';
 export class ProdottiService {
 
   private prodotti: Prodotto[] = [
-      // {nome: 'RedBull', descrizione:'Red Bull è una bevanda energetica analcolica di colore ambrato brillante, con taurina e caffeina.', prezzo:4, img:''},
-      // {nome: 'Riso basmati', descrizione:'Il riso basmati è una varietà di riso a chicco lungo dal sapore caratteristico e molto profumata.', prezzo:2, img:''},
-      // {nome: 'Penne integrali barilla', descrizione:'Le Penne Rigate Integrali Barilla, dal diametro ridotto e fonte naturale di fibre.', prezzo:1, img:''},
-      // {nome: 'Hamburger', descrizione:'Polpetta di carne macinata, compressa a formare una specie di medaglione.', prezzo:5, img:''},
-      // {nome: 'I rustici Giovanni Rana', descrizione:'La linea di pasta ripiena in cui ritrovi tutto il piacere della tradizione.', prezzo:1.50, img:''},
-      // {nome: 'Parmigiano reggiano', descrizione:'Il Parmigiano Reggiano è un formaggio a pasta dura DOP, prodotto con latte vaccino crudo.', prezzo:8, img:''},
+      // {nome: 'RedBull', descrizione:'Red Bull è una bevanda energetica analcolica di colore ambrato brillante, con taurina e caffeina.', prezzo:4, img:'',unita:"lattina",genere:"bevande"},
+      // {nome: 'Riso basmati', descrizione:'Il riso basmati è una varietà di riso a chicco lungo dal sapore caratteristico e molto profumata.', prezzo:2, img:'',unita:"Kg",genere:"alimenti"},
+      // {nome: 'Penne integrali barilla', descrizione:'Le Penne Rigate Integrali Barilla, dal diametro ridotto e fonte naturale di fibre.', prezzo:1, img:'',unita:"Kg",genere:"alimenti"},
+      // {nome: 'Hamburger', descrizione:'Polpetta di carne macinata, compressa a formare una specie di medaglione.', prezzo:5, img:'',unita:"Pezzo",genere:"alimenti"},
+      // {nome: 'I rustici Giovanni Rana', descrizione:'La linea di pasta ripiena in cui ritrovi tutto il piacere della tradizione.', prezzo:1.50, img:'',unita:"Pezzo",genere:"alimenti"},
+      // {nome: 'Parmigiano reggiano', descrizione:'Il Parmigiano Reggiano è un formaggio a pasta dura DOP, prodotto con latte vaccino crudo.', prezzo:8, img:'',unita:"Kg",genere:"alimenti"},
   ]
 
   itemsRef: AngularFireList<Prodotto> = null;
@@ -28,8 +28,8 @@ export class ProdottiService {
     this.itemsRef=db.list('/prodotti');
     // this.items = db.list('prodotti').valueChanges();
     // this.prodotti.forEach(prodotto => {
-    //   this.db.list('prodotti').push(prodotto);
-    // });
+    //    this.db.list('prodotti').push(prodotto);
+    //  });
   }
   
   getProdottiFromFirebase(){
