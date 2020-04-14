@@ -12,8 +12,12 @@ $headingbg: #f0f4f2;
 }
 
 body {
-    background: $bgcolor;
+    background-color: greenyellow;
     font-family: 'Poppins', sans-serif;
+}
+
+.input {
+    padding: 5px;
 }
 
 .big-heading {
@@ -174,6 +178,41 @@ h4 {
 }
 
 .bottom {
+    background: #fff;
+    width: 27%;
+    height: auto;
+    display: block;
+    float: left;
     position: relative;
-    bottom: 0;
+    left: 36%;
+    margin: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.save {
+    display: block;
+    margin: 20px auto 30px;
+    width: 60%;
+    height: 50px;
+    background: $btncolor;
+    border: none;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    -webkit-transition: .3s;
+    transition: .3s;
+    overflow: hidden;
+    p {
+        font-weight: bolder;
+        color: #fff;
+        font-size: 10pt;
+        text-align: center;
+        line-height: 50px;
+        font-family: 'Poppins', sans-serif;
+        text-transform: uppercase;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        -webkit-transition: all 600ms cubic-bezier(1, 0, 0, 1);
+        transition: all 600ms cubic-bezier(1, 0, 0, 1);
+    }
 }

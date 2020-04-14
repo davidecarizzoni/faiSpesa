@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdottiService } from 'src/app/services/prodotti.service';
 import { Prodotto } from 'src/app/models/prodotto.interface';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-list',
@@ -10,14 +11,24 @@ import { Prodotto } from 'src/app/models/prodotto.interface';
 export class ListComponent implements OnInit {
 
   prodotti: Prodotto[];
+  listForm: FormGroup;
   
 
-  constructor(private prodottiService:ProdottiService) {
+  constructor(private prodottiService:ProdottiService,private fb: FormBuilder) {
     prodottiService.getProdottiFromFirebase();
-    this.prodotti = prodottiService.getListaProdotti();
+    this.prodotti = this.prodottiService.getListaProdotti();
+    console.log(this.prodotti.length)
+    this.listForm = this.fb.group({
+      nomeLista: ['',Validators.required],
+    });
   }
 
   ngOnInit(): void {
+    
+  }
+
+  addToList(prodotto:Prodotto){
+    
   }
 
 }

@@ -9,6 +9,12 @@
 
 <body>
     <h2 class="big-heading">NOME DELLA LISTA</h2>
+    <div class="input">
+        <form action="#" [formGroup]="listForm" ngNativeValidate>
+            Inserisci il nome della lista:<input type="text" formControlName="nomeLista" required>
+        </form>
+    </div>
+
     <div class="table" *ngFor="let prodotto of prodotti">
         <h2 class="heading">{{prodotto.genere | uppercase}}</h2>
         <div class="block">
@@ -25,12 +31,14 @@
             <p>Aggiungi alla lista</p>
         </button>
     </div>
-
-
-
-    <!-- <div class="bottom">
-        <h1 routerLink="/home">TORNA ALLA HOME</h1>
-    </div> -->
+    <div class="bottom">
+        <button class="save">
+            <p>Salva lista</p>
+        </button>
+        <button class="save" routerLink="/home">
+            <p>torna alla home</p>
+        </button>
+    </div>
 
 
 
