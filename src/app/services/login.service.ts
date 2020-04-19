@@ -40,7 +40,7 @@ export class LoginService {
 
   eseguiLogin(username: string, password:string){
     if (this.isPres(username,password)) {
-      sessionStorage.setItem('user', username);
+      sessionStorage.setItem('username', username);
       this.router.navigateByUrl('/list');
     }
     else{
