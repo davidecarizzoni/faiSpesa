@@ -13,6 +13,7 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {environment} from '../environments/environment';
 import { LogsignComponent } from './components/logsign/logsign.component';
+import { ContattiComponent } from './components/contatti/contatti.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LogsignComponent } from './components/logsign/logsign.component';
     HomeComponent,
     ListComponent,
     PageNotFoundComponent,
-    LogsignComponent
+    LogsignComponent,
+    ContattiComponent
   ],
   imports: [
     BrowserModule,
