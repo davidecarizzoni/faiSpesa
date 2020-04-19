@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProdottiService } from 'src/app/services/prodotti.service';
 import { Prodotto } from 'src/app/models/prodotto.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -14,7 +15,7 @@ export class ListComponent implements OnInit {
   listForm: FormGroup;
   
 
-  constructor(private prodottiService:ProdottiService,private fb: FormBuilder) {
+  constructor(private prodottiService:ProdottiService,private fb: FormBuilder, private router:Router) {
     prodottiService.getProdottiFromFirebase();
     this.prodotti = this.prodottiService.getListaProdotti();
     console.log(this.prodotti.length)
@@ -23,12 +24,15 @@ export class ListComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {}
+
+  addToList(prodotto:Prodotto){}
+
+  logout(){
+    sessionStorage.clear();
+    this.router.navigateByUrl('/home');
   }
 
-  addToList(prodotto:Prodotto){
-    
-  }
+  
 
 }

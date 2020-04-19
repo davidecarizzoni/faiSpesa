@@ -11,9 +11,10 @@
     <img src="/assets/img/logo.png" alt="logo">
     <nav>
         <ul class="nav_links">
-            <li> <a href=""><button> Scarica      </button></a> </li>
+            <li> <a href=""><button> Benvenuto {{username}} </button></a> </li>
             <li> <a href=""><button> Funzionalità </button></a> </li>
             <li> <a href=""><button> Contatti     </button></a> </li>
+            <li> <a href=""><button (click)="logout()"> Logout     </button></a> </li>
             <!-- <li> <a href="../login/signin.html"><button> Registrati</button></a> </li> -->
             <li>
                 <a routerLink="/login"> <button class="buttonBlue"> Login</button></a>

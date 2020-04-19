@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  username = sessionStorage.getItem('username');
 
-  ngOnInit(): void {
+  constructor(private router:Router) { }
+
+  ngOnInit(): void {}
+
+  logout(){
+    if(this.username != null){
+      sessionStorage.clear();
+      window.alert("Logout effettuato con successo");
+      this.router.navigateByUrl('/home');
+    }else{
+      window.alert("Nessun utente registrato");
+    }
   }
 
 }
