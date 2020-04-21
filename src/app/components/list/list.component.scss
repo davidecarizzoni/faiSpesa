@@ -179,12 +179,12 @@ h4 {
 
 .bottom {
     background: #fff;
-    width: 27%;
+    width: 57%;
     height: auto;
-    display: block;
+    display: flex;
     float: left;
     position: relative;
-    left: 36%;
+    left: 18%;
     margin: 20px;
     border-radius: 8px;
     overflow: hidden;
@@ -192,7 +192,8 @@ h4 {
 
 .save {
     display: block;
-    margin: 20px auto 30px;
+    //margin: 40px auto 30px;
+    margin-left: 80px;
     width: 60%;
     height: 50px;
     background: $btncolor;
@@ -201,7 +202,7 @@ h4 {
     border-radius: 50px;
     -webkit-transition: .3s;
     transition: .3s;
-    overflow: hidden;
+    //overflow: hidden;
     p {
         font-weight: bolder;
         color: #fff;
