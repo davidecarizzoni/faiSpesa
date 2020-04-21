@@ -253,7 +253,7 @@ h3 {
     overflow: hidden;
     width: 80%;
     margin: 0 auto;
-    position: absolute;
+    position: relative;
     padding: 0 0 8em 0;
     left: 15%;
     margin-top: -3px;
@@ -322,5 +322,48 @@ h3 {
     .container td:nth-child(4),
     .container th:nth-child(4) {
         display: none;
+    }
+}
+
+.bottomTable {
+    background: #fff;
+    width: 57%;
+    height: auto;
+    display: flex;
+    float: left;
+    position: relative;
+    top: 50%;
+    left: 23%;
+    margin: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.saveTable {
+    display: block;
+    //margin: 40px auto 30px;
+    margin-left: 80px;
+    width: 60%;
+    height: 50px;
+    background: $btncolor;
+    border: none;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    -webkit-transition: .3s;
+    transition: .3s;
+    //overflow: hidden;
+    p {
+        font-weight: bolder;
+        color: #fff;
+        font-size: 10pt;
+        text-align: center;
+        line-height: 50px;
+        font-family: 'Poppins', sans-serif;
+        text-transform: uppercase;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        -webkit-transition: all 600ms cubic-bezier(1, 0, 0, 1);
+        transition: all 600ms cubic-bezier(1, 0, 0, 1);
     }
 }
