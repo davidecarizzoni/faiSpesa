@@ -26,7 +26,10 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addToList(prodotto:Prodotto){}
+  addToList(prodotto: Prodotto){
+    
+    console.log(prodotto);
+  }
 
   logout(){
     sessionStorage.clear();
