@@ -39,7 +39,8 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {}
 
   createList(form){
-    this.lista.nome = form;
+    let nome=form.nomeLista;
+    this.lista.nome = nome;
     this.lista.user = sessionStorage.getItem('username');
     this.hasNome = true;
   }
@@ -58,8 +59,14 @@ export class ListComponent implements OnInit {
 
 
   salvaLista(){
-    this.db.list('lists').push(this.lista);
-    window.alert("LISTA SALVATA ORA VEDRAI IL RESOCONTO");
-    this.isSave=true;
+    if(this.lista.prodotti.length>0){
+      this.db.list('lists').push(this.lista);
+      window.alert("LISTA SALVATA ORA VEDRAI IL RESOCONTO");
+      this.isSave=true;
+    }
+    else{
+      window.alert("LA LISTA DEVE CONTENERE ALMENO UN ARTICOLO");
+
+    }
   }
 }
