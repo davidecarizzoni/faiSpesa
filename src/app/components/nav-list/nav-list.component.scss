@@ -65,11 +65,13 @@ body {
 /*----------------page-wrapper----------------*/
 
 .page-wrapper {
-    height: 100vh;
+    height: 10%;
+    width: 10%;
+    position: relative;
 }
 
 .page-wrapper .theme {
-    width: 40px;
+    width: 10px;
     height: 40px;
     display: inline-block;
     border-radius: 4px;
@@ -367,11 +369,10 @@ body {
 }
 
 
-/*--------------------------page-content-----------------------------*/
+/*--------------------------page-content-----------------------------
 
 .page-wrapper .page-content {
     display: inline-block;
-    width: 100%;
     padding-left: 0px;
     padding-top: 20px;
 }

@@ -1,50 +1,38 @@
-<!DOCTYPE html>
-<html lang="it">
+<app-nav-list>
 
-<head>
-    <meta charset="utf-8">
-    <title>Liste</title>
-    <!--<link rel="stylesheet" type="text/css" href="css/liste.css">-->
-</head>
 
-<body>
-    <h2 class="big-heading">NOME DELLA LISTA</h2>
+</app-nav-list>
+<!--<h2 class="big-heading">NOME DELLA LISTA</h2>
     <div class="input">
         <form action="#" [formGroup]="listForm" ngNativeValidate>
             Inserisci il nome della lista:<input type="text" formControlName="nomeLista" required>
         </form>
-    </div>
+    </div>-->
 
-    <div class="table" *ngFor="let prodotto of prodotti">
-        <h2 class="heading">{{prodotto.genere | uppercase}}</h2>
-        <div class="block">
-            <img src="{{prodotto.img}}" alt={{prodotto.nome}} class="img">
-        </div>
-        <div class="block">
-            <span class="price"> {{prodotto.prezzo  | currency:"EUR":"symbol"}}/ <sub> {{prodotto.unita}} </sub> </span>
-            <p> {{prodotto.nome}} </p>
-            <ul class="options">
-                <li> {{prodotto.descrizione}} </li>
-            </ul>
-        </div>
-        <button class="btn">
+<div class="table" *ngFor="let prodotto of prodotti">
+    <h2 class="heading">{{prodotto.genere | uppercase}}</h2>
+    <div class="block">
+        <img src="{{prodotto.img}}" alt={{prodotto.nome}} class="img">
+    </div>
+    <div class="block">
+        <span class="price"> {{prodotto.prezzo  | currency:"EUR":"symbol"}}/ <sub> {{prodotto.unita}} </sub> </span>
+        <p> {{prodotto.nome}} </p>
+        <ul class="options">
+            <li> {{prodotto.descrizione}} </li>
+        </ul>
+    </div>
+    <button class="btn">
             <p>Aggiungi alla lista</p>
         </button>
-    </div>
-    <div class="bottom">
-        <button class="save">
+</div>
+<div class="bottom">
+    <button class="save">
             <p>Salva lista</p>
         </button>
-        <button class="save" routerLink="/home">
+    <button class="save" routerLink="/home">
             <p>torna alla home</p>
         </button>
-        <button (click)="logout()" class="save">
+    <button (click)="logout()" class="save">
             <p>Logout</p>
         </button>
-    </div>
-
-
-
-</body>
-
-</html>
+</div>
