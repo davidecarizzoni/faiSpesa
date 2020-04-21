@@ -2,35 +2,35 @@
 
 
 </app-nav-list>
-    
 
 
-    <div class="input" *ngIf="hasNome == false">
-        <form action="#" [formGroup]="listForm" (ngSubmit)="createList(listForm.value)" ngNativeValidate>
-            Inserisci il nome della lista: <input type="text" formControlName="nomeLista" required> 
-            <button type="submit">Crea lista </button>
-        </form>
-    </div>
-   
-    <ng-container *ngIf="hasNome === true">
-        <div class="table" *ngFor="let prodotto of prodotti">
-            <h2 class="heading">{{prodotto.genere | uppercase}}</h2>
-            <div class="block">
-                <img src="{{prodotto.img}}" alt={{prodotto.nome}} class="img">
-            </div>
-            <div class="block">
-                <span class="price"> {{prodotto.prezzo  | currency:"EUR":"symbol"}}/ <sub> {{prodotto.unita}} </sub> </span>
-                <p> {{prodotto.nome}} </p>
-                <ul class="options">
-                    <li> {{prodotto.descrizione}} </li>
-                </ul>
-            </div>
-            <button (click)="addToList(prodotto)"class="btn">
+
+<div class="input" *ngIf="hasNome == false">
+    <form action="#" [formGroup]="listForm" (ngSubmit)="createList(listForm.value)" ngNativeValidate>
+        Inserisci il nome della lista: <input type="text" formControlName="nomeLista" required>
+        <button type="submit">Crea lista </button>
+    </form>
+</div>
+
+<ng-container *ngIf="hasNome === true">
+    <div class="table" *ngFor="let prodotto of prodotti">
+        <h2 class="heading">{{prodotto.genere | uppercase}}</h2>
+        <div class="block">
+            <img src="{{prodotto.img}}" alt={{prodotto.nome}} class="img">
+        </div>
+        <div class="block">
+            <span class="price"> {{prodotto.prezzo  | currency:"EUR":"symbol"}}/ <sub> {{prodotto.unita}} </sub> </span>
+            <p> {{prodotto.nome}} </p>
+            <ul class="options">
+                <li> {{prodotto.descrizione}} </li>
+            </ul>
+        </div>
+        <button (click)="addToList(prodotto)" class="btn">
                 <p>Aggiungi alla lista</p>
             </button>
     </div>
     <div class="bottom">
-        <button class="save">
+        <button (click)="salvaLista()" class="save">
                 <p>Salva lista</p>
         </button>
         <button class="save" routerLink="/home">
@@ -40,4 +40,4 @@
                 <p>Logout</p>
             </button>
     </div>
-    </ng-container>
+</ng-container>

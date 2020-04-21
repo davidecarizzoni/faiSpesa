@@ -4,6 +4,8 @@ import { Prodotto } from 'src/app/models/prodotto.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Lista } from 'src/app/models/lista.interface';
+import { Observable } from 'rxjs';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'app-list',
@@ -20,9 +22,10 @@ export class ListComponent implements OnInit {
   };
   listForm: FormGroup;
   hasNome = false;
+  isSave:boolean;
+  items: Observable <any[]>;
 
-
-  constructor(private prodottiService:ProdottiService,private fb: FormBuilder, private router:Router) {
+  constructor(private prodottiService:ProdottiService,private fb: FormBuilder, private router:Router,public db:AngularFireDatabase) {
     prodottiService.getProdottiFromFirebase();
     this.prodotti = this.prodottiService.getListaProdotti();
 
@@ -30,6 +33,7 @@ export class ListComponent implements OnInit {
       nomeLista: ['',Validators.required],
     });
 
+    this.items = db.list('lists').valueChanges();
   }
 
   ngOnInit(): void {}
@@ -53,5 +57,9 @@ export class ListComponent implements OnInit {
   }
 
 
-
+  salvaLista(){
+    this.isSave=true;
+    this.db.list('lists').push(this.lista);
+    window.alert("LISTA SALVATA ORA VEDRAI IL RESOCONTO");
+  }
 }
