@@ -7,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavListComponent implements OnInit {
 
-  constructor() { }
+  username = sessionStorage.getItem('username');
+  admin=sessionStorage.getItem('privilege');
+  isAdmin:boolean;
+  constructor() {
+    if(this.admin==="admin"){
+      this.isAdmin=true;
+    }
+    else{
+      this.isAdmin=false;
+    }
+   }
 
   ngOnInit(): void {
   }

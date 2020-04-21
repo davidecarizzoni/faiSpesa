@@ -32,7 +32,4 @@ export class ListComponent implements OnInit {
     sessionStorage.clear();
     this.router.navigateByUrl('/home');
   }
-
-  
-
 }
