@@ -10,8 +10,9 @@
 <body>
     <h2 class="big-heading">NOME DELLA LISTA</h2>
     <div class="input">
-        <form action="#" [formGroup]="listForm" ngNativeValidate>
-            Inserisci il nome della lista:<input type="text" formControlName="nomeLista" required>
+        <form action="#" [formGroup]="listForm" (ngSubmit)="createList(listForm.value)" ngNativeValidate>
+            Inserisci il nome della lista: <input type="text" formControlName="nomeLista" required> 
+            <button type="submit">Crea lista </button>
         </form>
     </div>
 

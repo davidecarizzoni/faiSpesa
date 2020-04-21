@@ -3,6 +3,7 @@ import { ProdottiService } from 'src/app/services/prodotti.service';
 import { Prodotto } from 'src/app/models/prodotto.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Lista } from 'src/app/models/lista.interface';
 
 @Component({
   selector: 'app-list',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 export class ListComponent implements OnInit {
 
   prodotti: Prodotto[];
+  lista: Lista;
   listForm: FormGroup;
   
 
@@ -26,8 +28,14 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  createList(form){
+    this.lista.nome = form;
+    this.lista.prodotti = [];
+    this.lista.user = sessionStorage.getItem('username');
+  }
+
   addToList(prodotto: Prodotto){
-    
+
     console.log(prodotto);
   }
 
