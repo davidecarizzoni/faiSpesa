@@ -1,43 +1,99 @@
-<app-nav-list>
+<app-nav-list></app-nav-list>
+<ng-container *ngIf="isSave === false">
+    <div class="input" *ngIf="hasNome == false">
+        <form action="#" [formGroup]="listForm" (ngSubmit)="createList(listForm.value)" ngNativeValidate>
+            Inserisci il nome della lista: <input type="text" formControlName="nomeLista" required>
+            <button type="submit">Crea lista </button>
+        </form>
+    </div>
 
 
-</app-nav-list>
-
-
-
-<div class="input" *ngIf="hasNome == false">
-    <form action="#" [formGroup]="listForm" (ngSubmit)="createList(listForm.value)" ngNativeValidate>
-        Inserisci il nome della lista: <input type="text" formControlName="nomeLista" required>
-        <button type="submit">Crea lista </button>
-    </form>
-</div>
-
-<ng-container *ngIf="hasNome === true">
-    <div class="table" *ngFor="let prodotto of prodotti">
-        <h2 class="heading">{{prodotto.genere | uppercase}}</h2>
-        <div class="block">
-            <img src="{{prodotto.img}}" alt={{prodotto.nome}} class="img">
-        </div>
-        <div class="block">
-            <span class="price"> {{prodotto.prezzo  | currency:"EUR":"symbol"}}/ <sub> {{prodotto.unita}} </sub> </span>
-            <p> {{prodotto.nome}} </p>
-            <ul class="options">
-                <li> {{prodotto.descrizione}} </li>
-            </ul>
-        </div>
-        <button (click)="addToList(prodotto)" class="btn">
+    <ng-container *ngIf="hasNome === true">
+        <div class="table" *ngFor="let prodotto of prodotti">
+            <h2 class="heading">{{prodotto.genere | uppercase}}</h2>
+            <div class="block">
+                <img src="{{prodotto.img}}" alt={{prodotto.nome}} class="img">
+            </div>
+            <div class="block">
+                <span class="price"> {{prodotto.prezzo  | currency:"EUR":"symbol"}}/ <sub> {{prodotto.unita}} </sub> </span>
+                <p> {{prodotto.nome}} </p>
+                <ul class="options">
+                    <li> {{prodotto.descrizione}} </li>
+                </ul>
+            </div>
+            <button (click)="addToList(prodotto)" class="btn">
                 <p>Aggiungi alla lista</p>
             </button>
-    </div>
-    <div class="bottom">
-        <button (click)="salvaLista()" class="save">
+        </div>
+        <div class="bottom">
+            <button (click)="salvaLista()" class="save">
                 <p>Salva lista</p>
         </button>
-        <button class="save" routerLink="/home">
+            <button class="save" routerLink="/home">
                 <p>torna alla home</p>
             </button>
-        <button (click)="logout()" class="save">
+            <button (click)="logout()" class="save">
                 <p>Logout</p>
             </button>
-    </div>
+        </div>
+    </ng-container>
+</ng-container>
+<ng-container *ngIf="isSave === true">
+    <h1><span class="blue">RESOCONTO</span></h1>
+    <table class="container">
+        <thead>
+            <tr>
+                <th>
+                    <h1>Img</h1>
+                </th>
+                <th>
+                    <h1>Nome</h1>
+                </th>
+                <th>
+                    <h1>Prezzo</h1>
+                </th>
+                <th>
+                    <h1>Genere</h1>
+                </th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let prodotto of lista.prodotti">
+            <tr>
+                <td><img src="{{prodotto.img}}" alt="{{prodotto.nome}}" class="imgTable"></td>
+                <td>{{prodotto.nome}}</td>
+                <td>{{prodotto.prezzo | currency:"EUR":"symbol"}}</td>
+                <td>{{prodotto.genere}}</td>
+            </tr>
+            <!--<tr>
+                <td>Twitter</td>
+                <td>7326</td>
+                <td>10437</td>
+                <td>00:51:22</td>
+            </tr>
+            <tr>
+                <td>Amazon</td>
+                <td>4162</td>
+                <td>5327</td>
+                <td>00:24:34</td>
+            </tr>
+            <tr>
+                <td>LinkedIn</td>
+                <td>3654</td>
+                <td>2961</td>
+                <td>00:12:10</td>
+            </tr>
+            <tr>
+                <td>CodePen</td>
+                <td>2002</td>
+                <td>4135</td>
+                <td>00:46:19</td>
+            </tr>
+            <tr>
+                <td>GitHub</td>
+                <td>4623</td>
+                <td>3486</td>
+                <td>00:31:52</td>
+            </tr>-->
+        </tbody>
+    </table>
 </ng-container>

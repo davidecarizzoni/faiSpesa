@@ -22,7 +22,7 @@ export class ListComponent implements OnInit {
   };
   listForm: FormGroup;
   hasNome = false;
-  isSave:boolean;
+  isSave=false;
   items: Observable <any[]>;
 
   constructor(private prodottiService:ProdottiService,private fb: FormBuilder, private router:Router,public db:AngularFireDatabase) {
@@ -58,8 +58,8 @@ export class ListComponent implements OnInit {
 
 
   salvaLista(){
-    this.isSave=true;
     this.db.list('lists').push(this.lista);
     window.alert("LISTA SALVATA ORA VEDRAI IL RESOCONTO");
+    this.isSave=true;
   }
 }
