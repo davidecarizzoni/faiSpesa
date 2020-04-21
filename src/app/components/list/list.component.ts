@@ -5,7 +5,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Lista } from 'src/app/models/lista.interface';
 import { Observable } from 'rxjs';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { ListaService } from 'src/app/services/lista.service';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-list',
@@ -14,7 +16,9 @@ import { AngularFireDatabase } from '@angular/fire/database';
 })
 export class ListComponent implements OnInit {
 
+  itemsRef: AngularFireList<any>;
   prodotti: Prodotto[];
+  liste: Lista[] = [];
   lista: Lista = {
     nome: '',
     prodotti: [],
@@ -27,12 +31,13 @@ export class ListComponent implements OnInit {
 
   constructor(private prodottiService:ProdottiService,private fb: FormBuilder, private router:Router,public db:AngularFireDatabase) {
     prodottiService.getProdottiFromFirebase();
+    this.getListsFromFirebase();
+    console.log(this.liste);
     this.prodotti = this.prodottiService.getListaProdotti();
 
     this.listForm = this.fb.group({
       nomeLista: ['',Validators.required],
     });
-
     this.items = db.list('lists').valueChanges();
   }
 
@@ -65,7 +70,23 @@ export class ListComponent implements OnInit {
     }
     else{
       window.alert("LA LISTA DEVE CONTENERE ALMENO UN ARTICOLO");
-
     }
+  }
+  getListsFromFirebase(){
+    this.itemsRef=this.db.list('/lists');
+    this.itemsRef.snapshotChanges().pipe(
+      map(changes=>
+        changes.map(c=>
+          ({...c.payload.val()})
+          )
+        )
+    ).subscribe(lists =>{
+      lists.forEach(list => {
+        let jsonObj: any = JSON.stringify(list);
+        let lista: Lista=JSON.parse(jsonObj);
+        this.liste.push(lista);
+        console.log(this.liste);
+      });
+    });
   }
 }
