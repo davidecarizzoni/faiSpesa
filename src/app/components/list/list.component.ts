@@ -19,6 +19,7 @@ export class ListComponent implements OnInit {
   itemsRef: AngularFireList<any>;
   prodotti: Prodotto[];
   liste: Lista[] = [];
+  listeUtente: Lista[] = [];
   lista: Lista = {
     nome: '',
     prodotti: [],
@@ -28,11 +29,11 @@ export class ListComponent implements OnInit {
   hasNome = false;
   isSave=false;
   items: Observable <any[]>;
+  isProfile=false;
 
   constructor(private prodottiService:ProdottiService,private fb: FormBuilder, private router:Router,public db:AngularFireDatabase) {
     prodottiService.getProdottiFromFirebase();
     this.getListsFromFirebase();
-    console.log(this.liste);
     this.prodotti = this.prodottiService.getListaProdotti();
 
     this.listForm = this.fb.group({
@@ -89,4 +90,29 @@ export class ListComponent implements OnInit {
       });
     });
   }
+  showProfileLists(){
+    this.liste.forEach(list => {
+      if(list.nome==sessionStorage.getItem('username')){
+        this.listeUtente.push(list);
+      }
+    });
+    if(this.listeUtente.length>0){
+      this.isProfile=true;
+      window.alert("Visualizzazione tabelle")
+    }
+    else{
+      window.alert("l'utente non ha liste")
+    }
+    console.log(this.listeUtente);
+  }
+  nuovaLista(){
+    this.lista={
+      nome: '',
+      prodotti: [],
+      user: ''
+    };
+    this.hasNome=false;
+    this.isSave=false;
+  }
+  
 }
