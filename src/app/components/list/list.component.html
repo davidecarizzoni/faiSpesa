@@ -66,36 +66,6 @@
                     <td>{{prodotto.prezzo | currency:"EUR":"symbol"}}</td>
                     <td>{{prodotto.genere}}</td>
                 </tr>
-                <!--<tr>
-                <td>Twitter</td>
-                <td>7326</td>
-                <td>10437</td>
-                <td>00:51:22</td>
-            </tr>
-            <tr>
-                <td>Amazon</td>
-                <td>4162</td>
-                <td>5327</td>
-                <td>00:24:34</td>
-            </tr>
-            <tr>
-                <td>LinkedIn</td>
-                <td>3654</td>
-                <td>2961</td>
-                <td>00:12:10</td>
-            </tr>
-            <tr>
-                <td>CodePen</td>
-                <td>2002</td>
-                <td>4135</td>
-                <td>00:46:19</td>
-            </tr>
-            <tr>
-                <td>GitHub</td>
-                <td>4623</td>
-                <td>3486</td>
-                <td>00:31:52</td>
-            </tr>-->
             </tbody>
         </table>
         <div class="bottomTable">
@@ -109,5 +79,37 @@
             <p>Visualizza liste utente</p>
         </button>
         </div>
+    </ng-container>
+    <ng-container *ngIf="isProfile === true">
+        <h1><span class="blue">LISTE UTENTE</span></h1>
+        <ng-container *ngFor="let liste of listeUtente">
+            <h3>Lista: {{liste.nome}}<br><br> Utente: {{liste.user}}</h3>
+            <table class="container">
+                <thead>
+                    <tr>
+                        <th>
+                            <h1>Img</h1>
+                        </th>
+                        <th>
+                            <h1>Nome</h1>
+                        </th>
+                        <th>
+                            <h1>Prezzo</h1>
+                        </th>
+                        <th>
+                            <h1>Genere</h1>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let prodotto of liste.prodotti">
+                    <tr>
+                        <td><img src="{{prodotto.img}}" alt="{{prodotto.nome}}" class="imgTable"></td>
+                        <td>{{prodotto.nome}}</td>
+                        <td>{{prodotto.prezzo | currency:"EUR":"symbol"}}</td>
+                        <td>{{prodotto.genere}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </ng-container>
     </ng-container>
 </ng-container>

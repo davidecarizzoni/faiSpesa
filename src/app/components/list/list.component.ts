@@ -31,18 +31,23 @@ export class ListComponent implements OnInit {
   items: Observable <any[]>;
   isProfile=false;
 
-  constructor(private prodottiService:ProdottiService,private fb: FormBuilder, private router:Router,public db:AngularFireDatabase) {
-    prodottiService.getProdottiFromFirebase();
-    this.getListsFromFirebase();
+  constructor(private prodottiService:ProdottiService,private fb: FormBuilder, private router:Router,public db:AngularFireDatabase,private listService:ListaService) {
+    console.log(this.listeUtente);
+    
+    console.log(this.liste.length)
     this.prodotti = this.prodottiService.getListaProdotti();
-
     this.listForm = this.fb.group({
       nomeLista: ['',Validators.required],
     });
     this.items = db.list('lists').valueChanges();
+    this.listeUtente=[];
+    this.liste=[];
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.prodottiService.getProdottiFromFirebase();
+    this.liste=this.listService.getListsFromFirebase();
+  }
 
   createList(form){
     let nome=form.nomeLista;
@@ -53,9 +58,7 @@ export class ListComponent implements OnInit {
 
   addToList(prodotto: Prodotto){
     this.lista.prodotti.push(prodotto);
-    console.log(this.lista.prodotti);
     window.alert("PRODOTTO AGGIUNTO");
-    console.log(this.lista);
   }
 
   logout(){
@@ -68,31 +71,19 @@ export class ListComponent implements OnInit {
       this.db.list('lists').push(this.lista);
       window.alert("LISTA SALVATA ORA VEDRAI IL RESOCONTO");
       this.isSave=true;
+      console.log(this.liste.length);
     }
     else{
       window.alert("LA LISTA DEVE CONTENERE ALMENO UN ARTICOLO");
     }
   }
-  getListsFromFirebase(){
-    this.itemsRef=this.db.list('/lists');
-    this.itemsRef.snapshotChanges().pipe(
-      map(changes=>
-        changes.map(c=>
-          ({...c.payload.val()})
-          )
-        )
-    ).subscribe(lists =>{
-      lists.forEach(list => {
-        let jsonObj: any = JSON.stringify(list);
-        let lista: Lista=JSON.parse(jsonObj);
-        this.liste.push(lista);
-        console.log(this.liste);
-      });
-    });
-  }
+ 
+  
   showProfileLists(){
+    this.listeUtente=[];
+    console.log(this.liste.length);
     this.liste.forEach(list => {
-      if(list.nome==sessionStorage.getItem('username')){
+      if(list.user==sessionStorage.getItem('username')){
         this.listeUtente.push(list);
       }
     });
@@ -113,6 +104,7 @@ export class ListComponent implements OnInit {
     };
     this.hasNome=false;
     this.isSave=false;
+    console.log(this.liste.length);
   }
   
 }
