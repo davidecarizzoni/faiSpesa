@@ -15,6 +15,7 @@ import {environment} from '../environments/environment';
 import { LogsignComponent } from './components/logsign/logsign.component';
 import { ContattiComponent } from './components/contatti/contatti.component';
 import { NavListComponent } from './components/nav-list/nav-list.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NavListComponent } from './components/nav-list/nav-list.component';
     PageNotFoundComponent,
     LogsignComponent,
     ContattiComponent,
-    NavListComponent
+    NavListComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

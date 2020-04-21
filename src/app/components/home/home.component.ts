@@ -24,4 +24,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  isAdmin(): boolean {
+    if(sessionStorage.getItem('privilege') === 'admin')
+      return true;
+    else 
+      return false;
+  }
+
 }

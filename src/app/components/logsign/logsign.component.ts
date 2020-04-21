@@ -5,7 +5,6 @@ import { User } from 'src/app/models/user.interface';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-logsign',
@@ -60,6 +59,8 @@ export class LogsignComponent implements OnInit, AfterViewInit {
 
     this.db.list('users').push(user);
     this.itemValue = null;
+
+    this.container.classList.remove("right-panel-active");
   }
 
   switchSignUp(){
