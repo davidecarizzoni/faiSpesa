@@ -13,10 +13,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class LoginService {
 
-  private users: User[] = [
-    {nomeCognome:"Andrea Nani",email: "email@gmail.com",username: "andrea",password:"123",admin:true},
-    {nomeCognome:"Davide Carizzoni", email: "email@gmail.com",username: "davide",password:"123",admin:true},
-  ]
+  private users: User[] = [];
 
   itemsRef: AngularFireList<User> = null;
   utenti : any;
@@ -41,12 +38,9 @@ export class LoginService {
   eseguiLogin(username: string, password:string){
     if (this.isPres(username,password)) {
       sessionStorage.setItem('username', username);
-      this.router.navigateByUrl('/list');
-    }
-    else{
+      sessionStorage.getItem('privilege') == 'admin' ? this.router.navigateByUrl('/home') : this.router.navigateByUrl('/list');
+    }else{
       window.alert('Utente non trovato!');
-      // let name = document.querySelector('#username');
-      // name.setAttribute('value','')
     }
   }
   add(user){

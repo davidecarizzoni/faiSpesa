@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
     if(this.username != null){
       sessionStorage.clear();
       window.alert("Logout effettuato con successo");
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/login'); //UNA VOLTA EFFETTUATO IL LOGOUT SI RITORNA ALLA PAGINA DI SIGNUP
     }else{
       window.alert("Nessun utente registrato");
     }
@@ -26,6 +26,13 @@ export class HomeComponent implements OnInit {
 
   isAdmin(): boolean {
     if(sessionStorage.getItem('privilege') === 'admin')
+      return true;
+    else 
+      return false;
+  }
+
+  isLogged(): boolean {
+    if(sessionStorage.getItem('username') != null)
       return true;
     else 
       return false;
