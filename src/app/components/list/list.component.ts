@@ -13,30 +13,38 @@ import { Lista } from 'src/app/models/lista.interface';
 export class ListComponent implements OnInit {
 
   prodotti: Prodotto[];
-  lista: Lista;
+  lista: Lista = {
+    nome: '',
+    prodotti: [],
+    user: ''
+  };
   listForm: FormGroup;
-  
+  hasNome = false;
+
 
   constructor(private prodottiService:ProdottiService,private fb: FormBuilder, private router:Router) {
     prodottiService.getProdottiFromFirebase();
     this.prodotti = this.prodottiService.getListaProdotti();
-    console.log(this.prodotti.length)
+
     this.listForm = this.fb.group({
       nomeLista: ['',Validators.required],
     });
+
   }
 
   ngOnInit(): void {}
 
   createList(form){
     this.lista.nome = form;
-    this.lista.prodotti = [];
     this.lista.user = sessionStorage.getItem('username');
+    this.hasNome = true;
   }
 
   addToList(prodotto: Prodotto){
-
-    console.log(prodotto);
+    this.lista.prodotti.push(prodotto);
+    console.log(this.lista.prodotti);
+    window.alert("PRODOTTO AGGIUNTO");
+    console.log(this.lista);
   }
 
   logout(){
@@ -44,6 +52,6 @@ export class ListComponent implements OnInit {
     this.router.navigateByUrl('/home');
   }
 
-  
+
 
 }
