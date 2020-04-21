@@ -57,7 +57,6 @@ export class ListComponent implements OnInit {
     this.router.navigateByUrl('/home');
   }
 
-
   salvaLista(){
     if(this.lista.prodotti.length>0){
       this.db.list('lists').push(this.lista);
