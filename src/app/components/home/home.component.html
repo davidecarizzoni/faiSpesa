@@ -14,8 +14,10 @@
             <li *ngIf="isLogged()"> <a><button> Benvenuto {{username}} </button></a> </li>
             <li *ngIf="!isLogged()"> <a><button> Benvenuto  </button></a> </li>
 
-            <li> <a><button routerLink="/profilo"> Profilo     </button></a> </li>
-
+            <ng-container *ngIf="isLogged()">
+                <li> <a><button routerLink="/profilo"> Profilo     </button></a> </li>
+            </ng-container>
+           
             <!-- <li> <a *ngIf="isAdmin()" routerLink="/add-product"> <button> Aggiungi prodotto </button> </a> </li> -->
             <li> <a><button routerLink="/contatti"> Contatti     </button></a> </li>
             <li> <a><button (click)="logout()"> Logout     </button></a> </li>
