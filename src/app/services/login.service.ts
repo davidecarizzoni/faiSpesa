@@ -17,7 +17,6 @@ export class LoginService {
 
   itemsRef: AngularFireList<User> = null;
   utenti : any;
-  prova : any;
   
   constructor(private router:Router,public db:AngularFireDatabase) {
     this.itemsRef=db.list('/users');
@@ -28,6 +27,7 @@ export class LoginService {
     this.users.forEach(element => {
       if(element.username==username && element.password==password){
         element.admin === true ? sessionStorage.setItem('privilege','admin') : sessionStorage.setItem('privilege','user');
+        sessionStorage.setItem('user', JSON.stringify(element));
         controllo=true;
       }
     });
@@ -57,7 +57,6 @@ export class LoginService {
           )
         )
     ).subscribe(users =>{
-      this.prova=users;
       users.forEach(user => {
         let jsonObj: any = JSON.stringify(user);
         let utente: User=JSON.parse(jsonObj);

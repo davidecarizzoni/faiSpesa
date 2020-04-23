@@ -1,0 +1,32 @@
+<body>
+    <!-- <app-menu></app-menu> -->
+    <div class="all">
+        <p class="title">Benvenuto <br>
+            <!-- <p class="nome">{{user.nome}} {{user.cognome}}</p> -->
+            <p class="nome">{{user.username}}</p>
+            <!-- LOGO DA INSERIRE -->
+            <img src="/assets/img/profile.jpg" alt="profilo" class="profilo">
+            <table>
+                <tr>
+                    <td class="sx">Nome e Cognome</td>
+                    <ng-container *ngIf="user.nomeCognome === ''"> <td class="dx"> -- </td> </ng-container>
+                    <ng-container *ngIf="user.nomeCognome != ''"> <td class="dx">{{user.nomeCognome}}</td> </ng-container>
+                    
+                </tr>
+                <tr>
+                    <td class="sx">Email</td>
+                    <ng-container *ngIf="user.email === ''"> <td class="dx"> -- </td> </ng-container>
+                    <ng-container *ngIf="user.email != ''"><td class="dx">{{user.email}}</td> </ng-container>
+                </tr>
+                <tr>
+                    <td class="sx">Username</td>
+                    <ng-container *ngIf="user.username === ''"> <td class="dx"> -- </td> </ng-container>
+                    <ng-container *ngIf="user.username != ''"><td class="dx">{{user.username}}</td> </ng-container>
+                </tr>
+                <!-- POSSIBILITA' DI AGGIUNGERE IL TASTO PER MOSTRARE LA PASSWORD -->
+            </table>
+            <button routerLink="/home">
+            <span>Torna alla Home</span>
+        </button>
+    </div>
+    </body>

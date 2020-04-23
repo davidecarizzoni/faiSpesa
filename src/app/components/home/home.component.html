@@ -11,10 +11,12 @@
     <img src="/assets/img/logo.png" alt="logo">
     <nav>
         <ul class="nav_links">
-            <li *ngIf="isLogged()"> <a href=""><button> Benvenuto {{username}} </button></a> </li>
-            <li *ngIf="!isLogged()"> <a href=""><button> Benvenuto  </button></a> </li>
-            <li> <a><button> Funzionalità </button></a> </li>
-            <li> <a *ngIf="isAdmin()" routerLink="/add-product"> <button> Aggiungi prodotto </button> </a> </li>
+            <li *ngIf="isLogged()"> <a><button> Benvenuto {{username}} </button></a> </li>
+            <li *ngIf="!isLogged()"> <a><button> Benvenuto  </button></a> </li>
+
+            <li> <a><button routerLink="/profilo"> Profilo     </button></a> </li>
+
+            <!-- <li> <a *ngIf="isAdmin()" routerLink="/add-product"> <button> Aggiungi prodotto </button> </a> </li> -->
             <li> <a><button routerLink="/contatti"> Contatti     </button></a> </li>
             <li> <a><button (click)="logout()"> Logout     </button></a> </li>
             <li>

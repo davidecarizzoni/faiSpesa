@@ -8,6 +8,7 @@ import { LoginRouteGuardService } from './services/routeguard/login-route-guard.
 import { ContattiComponent } from './components/contatti/contatti.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { AddProdRouteGuardService } from './services/routeguard/add-prod-route-guard.service';
+import { ProfiloComponent } from './components/profilo/profilo.component';
 
 // DICHIARAZIONE ROUTES DEI COMPONENTI
 const appRoutes: Routes = [
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
     { path:'list', component: ListComponent, canActivate: [LoginRouteGuardService]},
     { path:'add-product',component: AddProductComponent, canActivate: [AddProdRouteGuardService]},
     { path:'contatti',component: ContattiComponent},
+    { path:'profilo', component: ProfiloComponent, canActivate: [LoginRouteGuardService]},
     { path:'', redirectTo: '/home', pathMatch:'full'},
     { path:'**',component: PageNotFoundComponent }
 ]

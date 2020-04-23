@@ -9,13 +9,14 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 // FIREBASE IMPORTS
-import {AngularFireModule} from '@angular/fire';
-import {AngularFireDatabaseModule} from '@angular/fire/database';
-import {environment} from '../environments/environment';
+import { AngularFireModule} from '@angular/fire';
+import { AngularFireDatabaseModule} from '@angular/fire/database';
+import { environment} from '../environments/environment';
 import { LogsignComponent } from './components/logsign/logsign.component';
 import { ContattiComponent } from './components/contatti/contatti.component';
 import { NavListComponent } from './components/nav-list/nav-list.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { ProfiloComponent } from './components/profilo/profilo.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     LogsignComponent,
     ContattiComponent,
     NavListComponent,
-    AddProductComponent
+    AddProductComponent,
+    ProfiloComponent
   ],
   imports: [
     BrowserModule,
