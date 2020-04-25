@@ -68,7 +68,7 @@ export class ListComponent implements OnInit {
 
   logout(){
     sessionStorage.clear();
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/login');
   }
 
   salvaLista(){
