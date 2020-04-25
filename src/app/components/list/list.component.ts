@@ -71,7 +71,6 @@ export class ListComponent implements OnInit {
   salvaLista(){
     if(this.lista.prodotti.length>0){
       this.db.list('lists').push(this.lista);
-      
       window.alert("LISTA SALVATA ORA VEDRAI IL RESOCONTO");
       this.isSave=true;
       //console.log(this.liste.length);
@@ -83,8 +82,8 @@ export class ListComponent implements OnInit {
   }
   
   showProfileLists(){
-    
     window.alert("Caricamento liste da DB");
+    this.isProfile=true;
     console.log(this.listeUtente);
     console.log(this.listeUtente.length);
   }
@@ -106,6 +105,7 @@ export class ListComponent implements OnInit {
   }
 
   getListsFromFirebase(){
+    console.log(sessionStorage.getItem('username'))
     this.listeUtente=[];
     this.itemsRef.snapshotChanges().pipe(
       map(changes=>
@@ -115,7 +115,8 @@ export class ListComponent implements OnInit {
         )
     ).subscribe(lists =>{
       lists.forEach(list => {
-      if(list.user==sessionStorage.getItem('username')){
+      console.log(list.user);
+      if(list.user===sessionStorage.getItem('username')){
         let jsonObj: any = JSON.stringify(list);
         let lista: Lista=JSON.parse(jsonObj);
         this.listeUtente.push(lista);
@@ -125,5 +126,4 @@ export class ListComponent implements OnInit {
     console.log(this.listeUtente);
     this.showProfileLists();
   }
-  
 }
