@@ -47,7 +47,7 @@ export class ListComponent implements OnInit {
     this.liste=[];
     //this.listService.svuotaLista();
     this.prodottiService.getProdottiFromFirebase();
-    this.getListsFromFirebase()
+    //this.getListsFromFirebase()
     //this.liste=this.listService.getListe();
   }
 
@@ -71,6 +71,7 @@ export class ListComponent implements OnInit {
   salvaLista(){
     if(this.lista.prodotti.length>0){
       this.db.list('lists').push(this.lista);
+      
       window.alert("LISTA SALVATA ORA VEDRAI IL RESOCONTO");
       this.isSave=true;
       //console.log(this.liste.length);
@@ -80,44 +81,12 @@ export class ListComponent implements OnInit {
       window.alert("LA LISTA DEVE CONTENERE ALMENO UN ARTICOLO");
     }
   }
-
   
   showProfileLists(){
-    //this.listService.getListsFromFirebase;
-    //this.liste=this.listService.getListe();
-    //console.log(this.listService.getListe());
-    // console.log(this.liste.length/2-0.5);
-    // console.log((this.liste.length/2)%2);
     
-  //   this.lunghezza=(this.liste.length/2)%2;
-  //   if(this.lunghezza!=0){
-  //     for (let index = this.liste.length/2-0.5; index < this.liste.length; index++) {
-  //       if(this.liste[index].user==sessionStorage.getItem('username')){
-  //         this.listeUtente.push(this.liste[index]);
-  //       }
-        
-  //     }
-  //   }
-  //   else{
-  //   for (let index = this.liste.length/2; index < this.liste.length; index++) {
-  //     if(this.liste[index].user==sessionStorage.getItem('username')){
-  //       this.listeUtente.push(this.liste[index]);
-  //     }
-      
-  //   }
-  // }
-  //console.log(this.listService.getListe());
-  this.liste.forEach(element => {
-    this.listeUtente.push(element);
-  });
-    if(this.listeUtente.length>0){
-      this.isProfile=true;
-      window.alert("Visualizzazione tabelle")
-    }
-    else{
-      window.alert("l'utente non ha liste")
-    }
+    window.alert("Caricamento liste da DB");
     console.log(this.listeUtente);
+    console.log(this.listeUtente.length);
   }
  
   nuovaLista(){
@@ -137,7 +106,7 @@ export class ListComponent implements OnInit {
   }
 
   getListsFromFirebase(){
-    let list: Lista[] = [];
+    this.listeUtente=[];
     this.itemsRef.snapshotChanges().pipe(
       map(changes=>
         changes.map(c=>
@@ -146,13 +115,15 @@ export class ListComponent implements OnInit {
         )
     ).subscribe(lists =>{
       lists.forEach(list => {
+      if(list.user==sessionStorage.getItem('username')){
         let jsonObj: any = JSON.stringify(list);
         let lista: Lista=JSON.parse(jsonObj);
-        list.push(lista)
+        this.listeUtente.push(lista);
+      }
       });
     });
-    console.log(list);
-    this.liste=list;
+    console.log(this.listeUtente);
+    this.showProfileLists();
   }
   
 }
