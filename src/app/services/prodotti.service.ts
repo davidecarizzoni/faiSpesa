@@ -30,6 +30,7 @@ export class ProdottiService {
     //  this.prodotti.forEach(prodotto => {
     //     this.db.list('prodotti').push(prodotto);
     //    });
+    this.prodotti=[];
   }
   
   getProdottiFromFirebase(){
@@ -46,6 +47,10 @@ export class ProdottiService {
         this.prodotti.push(articolo);
       });
     });
+  
+  }
+  svuota(){
+    this.prodotti=[];
   }
 
   getListaProdotti(){

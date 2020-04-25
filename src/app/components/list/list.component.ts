@@ -34,24 +34,27 @@ export class ListComponent implements OnInit {
   lunghezza:Number;
 
   constructor(private prodottiService:ProdottiService,private fb: FormBuilder, private router:Router,public db:AngularFireDatabase,private listService:ListaService) {
+    this.prodotti=[];
     this.prodotti = this.prodottiService.getListaProdotti();
     this.listForm = this.fb.group({
       nomeLista: ['',Validators.required],
     });
     this.items = db.list('lists').valueChanges();
     this.itemsRef=this.db.list('/lists');
-  
   }
 
   ngOnInit(): void {
     this.liste=[];
+    if(this.prodottiService.getListaProdotti().length==0){
+      this.prodottiService.getProdottiFromFirebase();
+    }
     //this.listService.svuotaLista();
-    this.prodottiService.getProdottiFromFirebase();
     //this.getListsFromFirebase()
     //this.liste=this.listService.getListe();
   }
 
   createList(form){
+    
     let nome=form.nomeLista;
     this.lista.nome = nome;
     this.lista.user = sessionStorage.getItem('username');
