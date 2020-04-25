@@ -48,13 +48,9 @@ export class ListComponent implements OnInit {
     if(this.prodottiService.getListaProdotti().length==0){
       this.prodottiService.getProdottiFromFirebase();
     }
-    //this.listService.svuotaLista();
-    //this.getListsFromFirebase()
-    //this.liste=this.listService.getListe();
   }
 
   createList(form){
-    
     let nome=form.nomeLista;
     this.lista.nome = nome;
     this.lista.user = sessionStorage.getItem('username');
@@ -76,8 +72,6 @@ export class ListComponent implements OnInit {
       this.db.list('lists').push(this.lista);
       window.alert("LISTA SALVATA ORA VEDRAI IL RESOCONTO");
       this.isSave=true;
-      //console.log(this.liste.length);
-      //console.log(this.listService.getListe());
     }
     else{
       window.alert("LA LISTA DEVE CONTENERE ALMENO UN ARTICOLO");
@@ -87,8 +81,6 @@ export class ListComponent implements OnInit {
   showProfileLists(){
     window.alert("Caricamento liste da DB");
     this.isProfile=true;
-    console.log(this.listeUtente);
-    console.log(this.listeUtente.length);
   }
  
   nuovaLista(){
@@ -100,11 +92,7 @@ export class ListComponent implements OnInit {
     };
     this.hasNome=false;
     this.isSave=false;
-    //console.log(this.liste.length);
     this.listeUtente=[];
-    // this.liste=[];
-    // this.listService.svuotaLista();
-    // this.listService.getListsFromFirebase();
   }
 
   getListsFromFirebase(){

@@ -2,7 +2,7 @@
 <ng-container *ngIf="isSave === false">
     <div class="input" *ngIf="hasNome == false">
         <form action="#" [formGroup]="listForm" (ngSubmit)="createList(listForm.value)" ngNativeValidate>
-            Inserisci il nome della lista: <input type="text" formControlName="nomeLista" required>
+            Inserisci il nome della lista: <input type="text" formControlName="nomeLista" placeholder="Nome lista" required>
             <button type="submit">Crea lista </button>
         </form>
     </div>
