@@ -17,25 +17,7 @@ export class ListaService {
   items: Observable <any[]>;
 
   constructor(public db:AngularFireDatabase) { 
-    this.items = db.list('lists').valueChanges();
-  }
-
-  getListsFromFirebase(){
+    
     this.liste=[];
-    this.itemsRef=this.db.list('/lists');
-    this.itemsRef.snapshotChanges().pipe(
-      map(changes=>
-        changes.map(c=>
-          ({...c.payload.val()})
-          )
-        )
-    ).subscribe(lists =>{
-      lists.forEach(list => {
-        let jsonObj: any = JSON.stringify(list);
-        let lista: Lista=JSON.parse(jsonObj);
-        this.liste.push(lista);
-      });
-    });
-    return this.liste;
   }
 }

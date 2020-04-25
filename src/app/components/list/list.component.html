@@ -71,7 +71,7 @@
         <div class="bottomTable">
             <button class="saveTable" (click)="nuovaLista()">
             <p>Crea nuova lista</p>
-    </button>
+        </button>
             <button class="saveTable" routerLink="/home">
             <p>torna alla home</p>
         </button>
@@ -110,6 +110,18 @@
                     </tr>
                 </tbody>
             </table>
+
         </ng-container>
+        <div class="bottomTable">
+            <button class="saveTable" (click)="nuovaLista()">
+            <p>Crea nuova lista</p>
+        </button>
+            <button class="saveTable" routerLink="/home">
+            <p>torna alla home</p>
+        </button>
+            <button (click)="logout()" class="save">
+            <p>Logout</p>
+        </button>
+        </div>
     </ng-container>
 </ng-container>
