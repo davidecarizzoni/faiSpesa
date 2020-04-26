@@ -55,6 +55,7 @@ export class ListComponent implements OnInit {
     this.lista.nome = nome;
     this.lista.user = sessionStorage.getItem('username');
     this.hasNome = true;
+    this.isProfile = false;
   }
 
   addToList(prodotto: Prodotto){

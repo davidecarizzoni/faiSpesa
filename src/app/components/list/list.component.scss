@@ -13,7 +13,27 @@ $headingbg: #f0f4f2;
 
 .input {
     position: relative;
-    left: 24%;
+    left: 26%;
+}
+
+.crea{
+    position: relative;
+    // left: 24%;
+    width: 180px;
+    height: 24px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: $btncolor;
+    border: none;
+   
+}
+
+.nomeLista{
+    position: relative;
+    margin-left: 22%;
+    margin-top: 2%;
 }
 
 .table {
@@ -228,6 +248,11 @@ h3 {
     color: #185875;
     margin-top: 20px;
 }
+.blue1 {
+    color: #185875;
+    margin-top: 20px;
+    margin-left: 23%;
+}
 
 .yellow {
     color: #FFF842;
@@ -366,4 +391,26 @@ h3 {
         -webkit-transition: all 600ms cubic-bezier(1, 0, 0, 1);
         transition: all 600ms cubic-bezier(1, 0, 0, 1);
     }
+}
+
+.btn-top{
+    position: relative;
+    margin-top: 5%;
+    margin-left: 24%;
+}
+
+.btn-top .save{
+    width: 150px;
+    height: 50px;
+    background: $btncolor;
+    border: none;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.center{
+    // position: relative;
+    margin-left: 24%;
 }

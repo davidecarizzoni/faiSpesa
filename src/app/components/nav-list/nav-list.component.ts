@@ -6,6 +6,7 @@ import { ProdottiService } from 'src/app/services/prodotti.service';
 import { ListaService } from 'src/app/services/lista.service';
 import { map } from 'rxjs/operators';
 import { ListComponent } from '../list/list.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-list',
@@ -24,7 +25,7 @@ export class NavListComponent implements OnInit {
   items: Observable <any[]>;
   
   
-  constructor(private prodottiService:ProdottiService,public db:AngularFireDatabase,private listService:ListaService, private listComponent:ListComponent) {
+  constructor(private router: Router) {
     this.admin==="admin" ? this.isAdmin=true : this.isAdmin=false;
   }
 
@@ -33,7 +34,8 @@ export class NavListComponent implements OnInit {
   }
 
   view(){
-    this.listComponent.getListsFromFirebase();
+    // this.listComponent.getListsFromFirebase();
+    this.router.navigateByUrl('/list');
   }
 
 }

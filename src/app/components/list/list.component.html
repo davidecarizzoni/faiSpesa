@@ -1,12 +1,42 @@
 <app-nav-list></app-nav-list>
+
 <ng-container *ngIf="isSave === false">
+    
     <div class="input" *ngIf="hasNome == false">
         <form action="#" [formGroup]="listForm" (ngSubmit)="createList(listForm.value)" ngNativeValidate>
-            Inserisci il nome della lista: <input type="text" formControlName="nomeLista" placeholder="Nome lista" required>
-            <button type="submit">Crea lista </button>
+            <input class="nomeLista"type="text" formControlName="nomeLista" placeholder="Nome lista" required> 
+            <button class="crea" type="submit"> CREA LISTA </button>
         </form>
+        <div class="btn-top">
+            <button class="save" (click)="getListsFromFirebase()"> <p> Visualizza le tue liste </p> </button>
+        </div>
     </div>
-
+    <div>
+        <ng-container *ngIf="isProfile">
+            <h1> <span class="blue1"> LISTE UTENTE </span> </h1>
+            <ng-container *ngFor="let liste of listeUtente">
+                <h3> Lista: {{liste.nome}} <br><br> Utente: {{liste.user}}</h3>
+                <table class="container">
+                    <thead>
+                        <tr>
+                            <th> <h1> Img </h1> </th>
+                            <th> <h1> Nome </h1> </th>
+                            <th> <h1> Prezzo </h1> </th>
+                            <th> <h1> Genere </h1> </th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let prodotto of liste.prodotti">
+                        <tr>
+                            <td><img src="{{prodotto.img}}" alt="{{prodotto.nome}}" class="imgTable"></td>
+                            <td>{{prodotto.nome}}</td>
+                            <td>{{prodotto.prezzo | currency:"EUR":"symbol"}}</td>
+                            <td>{{prodotto.genere}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ng-container>
+        </ng-container>
+    </div>
 
     <ng-container *ngIf="hasNome === true">
         <div class="table" *ngFor="let prodotto of prodotti">
@@ -26,18 +56,13 @@
             </button>
         </div>
         <div class="bottom">
-            <button (click)="salvaLista()" class="save">
-                <p>Salva lista</p>
-        </button>
-            <button class="save" routerLink="/home">
-                <p>torna alla home</p>
-            </button>
-            <button (click)="logout()" class="save">
-                <p>Logout</p>
-            </button>
+            <button (click)="salvaLista()" class="save"> <p> Salva lista </p> </button>
+            <button class="save" routerLink="/home"> <p> Torna alla home </p> </button>
+            <button (click)="logout()" class="save"> <p> Logout </p> </button>
         </div>
     </ng-container>
 </ng-container>
+
 <ng-container *ngIf="isSave === true">
     <ng-container *ngIf="isProfile === false">
         <h1><span class="blue">RESOCONTO</span></h1>
@@ -45,41 +70,28 @@
         <table class="container">
             <thead>
                 <tr>
-                    <th>
-                        <h1>Img</h1>
-                    </th>
-                    <th>
-                        <h1>Nome</h1>
-                    </th>
-                    <th>
-                        <h1>Prezzo</h1>
-                    </th>
-                    <th>
-                        <h1>Genere</h1>
-                    </th>
+                    <th> <h1> Img </h1> </th>
+                    <th> <h1> Nome </h1> </th>
+                    <th> <h1> Prezzo </h1> </th>
+                    <th> <h1> Genere </h1> </th>
                 </tr>
             </thead>
             <tbody *ngFor="let prodotto of lista.prodotti">
                 <tr>
-                    <td><img src="{{prodotto.img}}" alt="{{prodotto.nome}}" class="imgTable"></td>
-                    <td>{{prodotto.nome}}</td>
-                    <td>{{prodotto.prezzo | currency:"EUR":"symbol"}}</td>
-                    <td>{{prodotto.genere}}</td>
+                    <td> <img src="{{prodotto.img}}" alt="{{prodotto.nome}}" class="imgTable"> </td>
+                    <td> {{prodotto.nome}} </td>
+                    <td> {{prodotto.prezzo | currency:"EUR":"symbol"}} </td>
+                    <td> {{prodotto.genere}} </td>
                 </tr>
             </tbody>
         </table>
         <div class="bottomTable">
-            <button class="saveTable" (click)="nuovaLista()">
-            <p>Crea nuova lista</p>
-        </button>
-            <button class="saveTable" routerLink="/home">
-            <p>torna alla home</p>
-        </button>
-            <button class="saveTable" (click)="getListsFromFirebase();">
-            <p>Visualizza liste utente</p>
-        </button>
+            <button class="saveTable" (click)="nuovaLista()"> <p> Crea nuova lista </p> </button>
+            <button class="saveTable" routerLink="/home"> <p> Torna alla home </p> </button>
+            <button class="saveTable" (click)="getListsFromFirebase()"> <p> Visualizza liste utente </p> </button>
         </div>
     </ng-container>
+
     <ng-container *ngIf="isProfile === true">
         <h1><span class="blue">LISTE UTENTE</span></h1>
         <ng-container *ngFor="let liste of listeUtente">
@@ -87,18 +99,10 @@
             <table class="container">
                 <thead>
                     <tr>
-                        <th>
-                            <h1>Img</h1>
-                        </th>
-                        <th>
-                            <h1>Nome</h1>
-                        </th>
-                        <th>
-                            <h1>Prezzo</h1>
-                        </th>
-                        <th>
-                            <h1>Genere</h1>
-                        </th>
+                        <th> <h1> Img </h1> </th>
+                        <th> <h1> Nome </h1> </th>
+                        <th> <h1> Prezzo </h1> </th>
+                        <th> <h1> Genere </h1> </th>
                     </tr>
                 </thead>
                 <tbody *ngFor="let prodotto of liste.prodotti">
@@ -110,18 +114,11 @@
                     </tr>
                 </tbody>
             </table>
-
         </ng-container>
         <div class="bottomTable">
-            <button class="saveTable" (click)="nuovaLista()">
-            <p>Crea nuova lista</p>
-        </button>
-            <button class="saveTable" routerLink="/home">
-            <p>torna alla home</p>
-        </button>
-            <button (click)="logout()" class="save">
-            <p>Logout</p>
-        </button>
+            <button class="saveTable" (click)="nuovaLista()"> <p>Crea nuova lista</p> </button>
+            <button class="saveTable" routerLink="/home"> <p>Torna alla home</p> </button>
+            <button (click)="logout()" class="save"> <p>Logout</p> </button>
         </div>
     </ng-container>
 </ng-container>

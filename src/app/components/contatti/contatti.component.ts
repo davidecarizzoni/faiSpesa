@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contatti',
@@ -7,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContattiComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   send(){
     window.alert("Messaggio inviato con successo");
+    this.router.navigateByUrl('/home');
   }
 }
