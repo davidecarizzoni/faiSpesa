@@ -24,7 +24,9 @@
            
             <!-- <li> <a *ngIf="isAdmin()" routerLink="/add-product"> <button> Aggiungi prodotto </button> </a> </li> -->
             <li> <a><button routerLink="/contatti"> Contatti     </button></a> </li>
-            <li> <a><button (click)="logout()"> Logout     </button></a> </li>
+            <li *ngIf="isLogged()"> <a><button (click)="logout()"> Logout     </button></a> </li>
+
+
             <li *ngIf="!isLogged()">
                 <a routerLink="/login"> <button class="buttonBlue"> Login</button></a>
             </li>
